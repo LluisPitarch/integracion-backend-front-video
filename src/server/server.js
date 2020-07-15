@@ -82,32 +82,50 @@ const setResponse = (html, preloadedState, manifest) => {
 
 const renderApp = async (req, res) => {
   let initialState;
-  const { token, email, name, id } = req.cookies;
+  const { email, name, id, token } = req.cookies;
 
   try {
     let movieList = await axios({
       url: `${process.env.API_URL}/api/movies`,
-      headers: { Authorization: `Bearer ${token}` },
-      method: 'get',
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
-
     movieList = movieList.data.data;
 
-    // Error logout autmáticamente
-    // const userMovieListRaw = await axios({
-    //   url: `${process.env.API_URL}/api/user-movies`,
-    //   headers: { Authorization: `Bearer ${token}` },
-    //   method: 'get',
-    //   data: id,
+    // // Segunda petición
+    // let userMovieList = await axios({
+    //   url: `${process.env.API_URL}/api/user-movies/?userId=${id}`,
+    //   method: 'GET',
+    //   headers: {
+    //     Authorization: `Bearer ${token}`,
+    //   },
     // });
+    // userMovieList = userMovieList.data.data;
 
     initialState = {
       user: {
-        id,
         email,
         name,
+        id,
       },
-      myList: userMovieListRaw || [],
+      playing: {},
+      // myList: movieList
+      //   .filter((movie) => {
+      //     return userMovieList.some(
+      //       (userMovie) => movie._id === userMovie.movieId
+      //     );
+      //   })
+      //   .map((movie) => {
+      //     const filteredMovie = userMovieList.find(
+      //       (userMovie) => movie._id === userMovie.movieId
+      //     );
+      //     if (filteredMovie) {
+      //       movie.userMovieId = filteredMovie._id;
+      //     }
+      //     return movie;
+      //   }),
       trends: movieList.filter(
         (movie) => movie.contentRating === 'PG' && movie._id
       ),
@@ -118,6 +136,7 @@ const renderApp = async (req, res) => {
   } catch (err) {
     initialState = {
       user: {},
+      playing: {},
       myList: [],
       trends: [],
       originals: [],
@@ -168,7 +187,6 @@ app.post('/auth/sign-up', async function (req, res, next) {
   const { body: user } = req;
 
   try {
-    console.log(user);
     const userData = await axios({
       url: `${process.env.API_URL}/api/auth/sign-up`,
       method: 'post',
