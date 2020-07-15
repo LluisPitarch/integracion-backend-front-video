@@ -79,7 +79,7 @@
     "webpack-manifest-plugin": "^2.2.0"
   },
   "engines": {
-    "node": "12.16.x"
+    "node": "14.3.0"
   },
   "jest": {
     "verbose": true,
