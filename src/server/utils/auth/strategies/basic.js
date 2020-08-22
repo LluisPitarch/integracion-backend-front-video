@@ -13,7 +13,6 @@ const boom = require('@hapi/boom');
 
 passport.use(
   new BasicStrategy(async function (email, password, cb) {
-    console.log(process.env.API_KEY_TOKEN);
     try {
       const { data, status } = await axios({
         url: `${process.env.API_URL}/api/auth/sign-in`,

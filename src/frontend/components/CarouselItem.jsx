@@ -75,7 +75,7 @@ const CarouselItem = (props) => {
           )}
         </div>
         <p className="carousel-item__details--title">{title}</p>
-        <p className="carousel-item__details--subtitle">{`${year} ${contentRating} ${duration}`}</p>
+        <p className="carousel-item__details--subtitle">{`${year} | ${contentRating} | ${duration}`}</p>
       </div>
     </div>
   );

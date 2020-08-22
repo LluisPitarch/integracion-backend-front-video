@@ -6,7 +6,7 @@ import classNames from 'classnames';
 import { logoutRequest } from '../actions';
 import gravatar from '../utils/gravatar';
 import '../assets/styles/components/Header.scss';
-import logo from '../assets/static/logo-platzi-video-BW2.png';
+import logo from '../assets/static/appflix.png';
 import userIcon from '../assets/static/user-icon.png';
 
 const Header = (props) => {
@@ -36,7 +36,7 @@ const Header = (props) => {
           ) : (
             <img src={userIcon} alt="Usuario" />
           )}
-          <p>Perfil</p>
+          <p>Profile</p>
         </div>
         <ul>
           {hasUser ? (
@@ -47,12 +47,12 @@ const Header = (props) => {
           {hasUser ? (
             <li>
               <a href="#logout" onClick={handleLogout}>
-                Cerrar Sesión
+                Logout
               </a>
             </li>
           ) : (
             <li>
-              <Link to="login">Iniciar Sesión</Link>
+              <Link to="login">Login</Link>
             </li>
           )}
         </ul>

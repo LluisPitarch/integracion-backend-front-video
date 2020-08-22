@@ -30,7 +30,7 @@ const Register = (props) => {
       <Header isRegister />
       <section className="register">
         <section className="register__container">
-          <h2>Regístrate</h2>
+          <h2>Register</h2>
           <form className="register__container--form" onSubmit={handleSubmit}>
             <input
               name="name"
@@ -54,12 +54,16 @@ const Register = (props) => {
               onChange={updateInput}
             />
             <button className="button" type="submit">
-              Registrarme
+              Register
             </button>
           </form>
-          <Link to="/login" className="register__container--login">
-            Iniciar sesión
-          </Link>
+          <p className="login__container--register">
+            You already have account <br></br>
+            <br></br>
+            <Link to="/login" className="register__container--login">
+              LOGIN
+            </Link>
+          </p>
         </section>
       </section>
     </>

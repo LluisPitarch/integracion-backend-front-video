@@ -85,24 +85,25 @@ const renderApp = async (req, res) => {
   const { email, name, id, token } = req.cookies;
 
   try {
-    let movieList = await axios({
-      url: `${process.env.API_URL}/api/movies`,
-      method: 'GET',
+    const header = {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    });
-    movieList = movieList.data.data;
+    };
 
-    // // Segunda petición
-    // let userMovieList = await axios({
-    //   url: `${process.env.API_URL}/api/user-movies/?userId=${id}`,
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization: `Bearer ${token}`,
-    //   },
-    // });
-    // userMovieList = userMovieList.data.data;
+    const requests = await axios
+      .all([
+        axios.get(`${process.env.API_URL}/api/movies`, header),
+        axios.get(`${process.env.API_URL}/api/user-movies/${id}`, header),
+      ])
+      .then(
+        axios.spread((movieList, userMovieList) => {
+          return {
+            movieListData: movieList.data.data,
+            userMovieListData: userMovieList.data.data,
+          };
+        })
+      );
 
     initialState = {
       user: {
@@ -111,26 +112,16 @@ const renderApp = async (req, res) => {
         id,
       },
       playing: {},
-      // myList: movieList
-      //   .filter((movie) => {
-      //     return userMovieList.some(
-      //       (userMovie) => movie._id === userMovie.movieId
-      //     );
-      //   })
-      //   .map((movie) => {
-      //     const filteredMovie = userMovieList.find(
-      //       (userMovie) => movie._id === userMovie.movieId
-      //     );
-      //     if (filteredMovie) {
-      //       movie.userMovieId = filteredMovie._id;
-      //     }
-      //     return movie;
-      //   }),
-      trends: movieList.filter(
-        (movie) => movie.contentRating === 'PG' && movie._id
+      myList: requests.movieListData.filter((movie) =>
+        requests.userMovieListData.some(
+          (userMovie) => userMovie.movieId === movie._id
+        )
       ),
-      originals: movieList.filter(
-        (movie) => movie.contentRating === 'G' && movie._id
+      trends: requests.movieListData.filter(
+        (movie) => movie.contentRating === 'T' && movie._id
+      ),
+      originals: requests.movieListData.filter(
+        (movie) => movie.contentRating === 'O' && movie._id
       ),
     };
   } catch (err) {

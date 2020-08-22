@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import { loginUser } from '../actions';
 import '../assets/styles/components/Login.scss';
 import Header from '../components/Header';
-import googleIcon from '../assets/static/google-icon.png';
-import twitterIcon from '../assets/static/twitter-icon.png';
 
 const Login = (props) => {
   const [form, setValues] = useState({
@@ -50,26 +48,14 @@ const Login = (props) => {
               onChange={updateInput}
             />
             <button className="button" type="submit">
-              Iniciar sesión
+              LOGIN
             </button>
-            <div className="login__container--remember-me">
-              <label htmlFor="first_checkbox">
-                <input type="checkbox" id="cbox1" value="first_checkbox" />
-                Recuérdame
-              </label>
-              <a href="/">Olvidé mi contraseña</a>
-            </div>
           </form>
-          <section className="login__container--social-media">
-            <div>
-              <img src={googleIcon} alt="Google" /> Inicia sesión con Google
-            </div>
-            <div>
-              <img src={twitterIcon} alt="Twitter" /> Inicia sesión con Twitter
-            </div>
-          </section>
+
           <p className="login__container--register">
-            No tienes ninguna cuenta <Link to="/register">Regístrate</Link>
+            Don't have an account? <br></br>
+            <br></br>
+            <Link to="/register">Register</Link>
           </p>
         </section>
       </section>

@@ -1,5 +1,5 @@
 .register {
-  background-image: linear-gradient(#21c08b, #8f57fd);
+  background-image: #ffe9bf;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -9,16 +9,22 @@
 }
 
 .register__container {
-  background-color: rgba(255,255,255,0.1);
-  border: 2px solid white;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid black;
   border-radius: 40px;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  color: white;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   min-height: 600px;
   padding: 60px 68px 40px;
+}
+
+.register__container h2 {
+  text-align: center;
+  letter-spacing: 2px;
+  font-size: 30px;
 }
 
 .register__container--form {
@@ -27,26 +33,24 @@
 }
 
 .register__container a {
-  color: white;
+  color: black;
+  font-weight: bold;
   font-size: 16px;
-  text-align: center;
   text-decoration: none;
-}
-
-.register__container a:hover {
-  text-decoration: underline;
+  padding: 0 2px;
+  border-bottom: solid rgba(255, 0, 0, .8) 2px;
 }
 
 .button {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 0, 2, 0.8);
   border: none;
   border-radius: 25px;
-  color: white;
+  color: black;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: bold;
-  font-family: 'Muli', sans-serif;
   height: 50px;
   letter-spacing: 1px;
   margin: 10px 0px;
+  border: solid black 2px
 }

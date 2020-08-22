@@ -1,1 +1,3 @@
-# escuela-js
+### Appflix
+
+Netflix clone builded in React
