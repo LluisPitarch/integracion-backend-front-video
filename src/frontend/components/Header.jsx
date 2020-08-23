@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import classNames from 'classnames';
 import { logoutRequest } from '../actions';
 import gravatar from '../utils/gravatar';
-import '../assets/styles/components/Header.scss';
+import '../assets/styles/components/Header.css';
 import logo from '../assets/static/appflix.png';
 import userIcon from '../assets/static/user-icon.png';
 

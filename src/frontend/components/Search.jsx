@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { connect } from 'react-redux';
-import '../assets/styles/components/Search.scss';
+import '../assets/styles/components/Search.css';
 
 import { setSearch } from '../actions';
 

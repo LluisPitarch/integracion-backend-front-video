@@ -6,7 +6,7 @@ import CarouselItem from '../components/CarouselItem';
 import Categories from '../components/Categories';
 import Search from '../components/Search';
 import SearchMovies from '../components/SearchMovies';
-import '../assets/styles/Home.scss';
+import '../assets/styles/Home.css';
 
 const Home = ({ myList, trends, originals, search }) => {
   return (

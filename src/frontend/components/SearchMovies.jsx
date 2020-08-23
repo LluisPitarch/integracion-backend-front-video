@@ -4,7 +4,7 @@ import notFound from '../assets/static/notFound.png';
 
 import { connect } from 'react-redux';
 
-import '../assets/styles/components/SearchMovies.scss';
+import '../assets/styles/components/SearchMovies.css';
 
 export const SearchMovies = ({ trends, originals, search }) => {
   const movies = trends.concat(originals);

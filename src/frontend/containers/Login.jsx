@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { loginUser } from '../actions';
-import '../assets/styles/components/Login.scss';
+import '../assets/styles/components/Login.css';
 import Header from '../components/Header';
 
 import crossIcon from '../assets/static/cross.png';
@@ -35,7 +35,7 @@ const Login = (props) => {
       <Header isLogin />
       <section className="login">
         <section className="login__container">
-          <h2>Inicia sesión</h2>
+          <h2>Login</h2>
           <form className="login__container--form" onSubmit={handleSubmit}>
             <input
               name="email"

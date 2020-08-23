@@ -1,5 +1,5 @@
 .login {
-  background-image: #ffe9bf;
+  background: #ffe9bf;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -54,14 +54,14 @@
   text-decoration: underline;
 }
 
-.login__container--social-media>div {
+.login__container--social-media > div {
   align-items: center;
   display: flex;
   font-size: 14px;
   margin-bottom: 10px;
 }
 
-.login__container--social-media>div>img {
+.login__container--social-media > div > img {
   margin-right: 10px;
   width: 30px;
 }
@@ -77,7 +77,7 @@
   font-size: 16px;
   text-decoration: none;
   padding: 0 2px;
-  border-bottom: solid rgba(255, 0, 0, .8) 2px;
+  border-bottom: solid rgba(255, 0, 0, 0.8) 2px;
 }
 
 .error {
@@ -86,13 +86,13 @@
 }
 
 .crossIcon {
-  width: 14px
+  width: 14px;
 }
 
 .errorText {
-  margin-left: 7px
+  margin-left: 7px;
 }
 
 .loadingIcon {
-  width: 80px
+  width: 80px;
 }

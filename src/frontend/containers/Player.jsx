@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getVideoSource } from '../actions';
-import '../assets/styles/components/Player.scss';
+import '../assets/styles/components/Player.css';
 import NotFount from './NotFount';
 
 const Player = (props) => {

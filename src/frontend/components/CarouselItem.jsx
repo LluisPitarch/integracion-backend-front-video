@@ -6,7 +6,7 @@ import {
   addToFavoriteUserMovies,
   deleteFromFavoriteUserMovies,
 } from '../actions';
-import '../assets/styles/components/CarouselItem.scss';
+import '../assets/styles/components/CarouselItem.css';
 import playIcon from '../assets/static/play-icon.png';
 import plusIcon from '../assets/static/plus-icon.png';
 import removeIcon from '../assets/static/remove-icon.png';

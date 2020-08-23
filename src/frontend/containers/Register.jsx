@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { registerUser } from '../actions';
 import Header from '../components/Header';
-import '../assets/styles/components/Register.scss';
+import '../assets/styles/components/Register.css';
 
 const Register = (props) => {
   const [form, setValues] = useState({
