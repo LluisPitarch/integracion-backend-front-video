@@ -54,12 +54,17 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-dev-server": "^3.10.1",
     "webpack-hot-middleware": "^2.25.0",
-    "mini-css-extract-plugin": "^0.7.0"
+    "mini-css-extract-plugin": "^0.7.0",
+    "compression-webpack-plugin": "^5.0.0",
+    "css-loader": "^3.4.2",
+    "file-loader": "^4.3.0",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^7.3.1",
+    "style-loader": "^0.23.1",
+    "webpack-manifest-plugin": "^2.2.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.3",
-    "compression-webpack-plugin": "^5.0.0",
-    "css-loader": "^3.4.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "eslint": "^5.16.0",
@@ -69,14 +74,8 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.0",
-    "file-loader": "^4.3.0",
     "jest": "^26.1.0",
-    "mini-css-extract-plugin": "^0.7.0",
-    "node-sass": "^4.13.1",
-    "react-test-render": "^1.1.2",
-    "sass-loader": "^7.3.1",
-    "style-loader": "^0.23.1",
-    "webpack-manifest-plugin": "^2.2.0"
+    "react-test-render": "^1.1.2"
   },
   "engines": {
     "node": "14.3.0"
