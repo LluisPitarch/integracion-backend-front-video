@@ -64,8 +64,9 @@ const setResponse = (html, preloadedState, manifest) => {
           <meta name="viewport" content="width=device-width, initial-scale=1.0">
           <meta http-equiv="X-UA-Compatible" content="ie=edge">
           <meta charset="utf-8" />
+          <meta name="description" content="The all in one video streaming platform">
           <link rel="stylesheet" href="${mainStyles}" type="text/css"/>
-          <title>Platfix</title>
+          <title>Appflix</title>
         </head>
         <body>
           <div id="app">${html}</div>
@@ -123,6 +124,8 @@ const renderApp = async (req, res) => {
       originals: requests.movieListData.filter(
         (movie) => movie.contentRating === 'O' && movie._id
       ),
+      error: '',
+      search: '',
     };
   } catch (err) {
     initialState = {
@@ -131,6 +134,8 @@ const renderApp = async (req, res) => {
       myList: [],
       trends: [],
       originals: [],
+      error: '',
+      search: '',
     };
   }
 

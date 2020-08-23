@@ -58,7 +58,7 @@ const Register = (props) => {
             </button>
           </form>
           <p className="login__container--register">
-            You already have account <br></br>
+            You already have account?<br></br>
             <br></br>
             <Link to="/login" className="register__container--login">
               LOGIN

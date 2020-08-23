@@ -6,11 +6,15 @@ import { loginUser } from '../actions';
 import '../assets/styles/components/Login.scss';
 import Header from '../components/Header';
 
+import crossIcon from '../assets/static/cross.png';
+import loading from '../assets/static/loading.gif';
+
 const Login = (props) => {
   const [form, setValues] = useState({
     email: '',
     id: '',
     name: '',
+    loading: false,
   });
 
   const updateInput = (event) => {
@@ -22,8 +26,8 @@ const Login = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log('submit');
     props.loginUser(form, '/');
+    setValues({ ...form, loading: true });
   };
 
   return (
@@ -36,7 +40,7 @@ const Login = (props) => {
             <input
               name="email"
               className="input"
-              type="text"
+              type="email"
               placeholder="Correo"
               onChange={updateInput}
             />
@@ -48,10 +52,26 @@ const Login = (props) => {
               onChange={updateInput}
             />
             <button className="button" type="submit">
-              LOGIN
+              {form.loading ? (
+                props.error ? (
+                  'LOGIN'
+                ) : (
+                  <img className="loadingIcon" src={loading} alt="loading" />
+                )
+              ) : (
+                'LOGIN'
+              )}
             </button>
           </form>
 
+          <div className="error">
+            {props.error && (
+              <>
+                <img className="crossIcon" src={crossIcon} alt="error icon" />
+                <span className="errorText">{props.error}</span>
+              </>
+            )}
+          </div>
           <p className="login__container--register">
             Don't have an account? <br></br>
             <br></br>
@@ -63,6 +83,12 @@ const Login = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    error: state.error,
+  };
+};
+
 const mapDispatchToProps = {
   loginUser,
 };
@@ -71,4 +97,4 @@ Login.propTypes = {
   loginUser: PropTypes.func,
 };
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

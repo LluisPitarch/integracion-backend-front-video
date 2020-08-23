@@ -35,6 +35,11 @@ export const setError = (payload) => ({
   payload,
 });
 
+export const setSearch = (payload) => ({
+  type: 'SET_SEARCH',
+  payload,
+});
+
 export const registerUser = (payload, redirectURL) => {
   return (dispatch) => {
     axios
@@ -49,24 +54,29 @@ export const registerUser = (payload, redirectURL) => {
 
 export const loginUser = ({ email, password }, redirectUrl) => {
   return (dispatch) => {
-    axios({
-      url: '/auth/sign-in',
-      method: 'post',
-      auth: {
-        username: email,
-        password,
-      },
-    })
-      .then(({ data }) => {
-        document.cookie = `email=${data.user.email}`;
-        document.cookie = `name=${data.user.name}`;
-        document.cookie = `id=${data.user.id}`;
-        dispatch(loginRequest(data.user));
+    if (email && password) {
+      dispatch(setError(''));
+      axios({
+        url: '/auth/sign-in',
+        method: 'post',
+        auth: {
+          username: email,
+          password,
+        },
       })
-      .then(() => {
-        window.location.href = redirectUrl;
-      })
-      .catch((err) => dispatch(setError(err)));
+        .then(({ data }) => {
+          document.cookie = `email=${data.user.email}`;
+          document.cookie = `name=${data.user.name}`;
+          document.cookie = `id=${data.user.id}`;
+          dispatch(loginRequest(data.user));
+        })
+        .then(() => {
+          window.location.href = redirectUrl;
+        })
+        .catch((err) => dispatch(setError('wrong email or password')));
+    } else {
+      dispatch(setError('Set your data access in the fields'));
+    }
   };
 };
 

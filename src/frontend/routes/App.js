@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route, BrowserRouter } from 'react-router-dom';
+import { Switch, Route, BrowserRouter, Redirect } from 'react-router-dom';
 import Layout from '../components/Layout';
 import Home from '../containers/Home';
 import Player from '../containers/Player';
@@ -13,7 +13,9 @@ const App = ({ isLogged }) => (
       <Switch>
         <Route exact path="/" component={isLogged ? Home : Login} />
         <Route exact path="/player/:id" component={isLogged ? Player : Login} />
-        <Route exact path="/login" component={Login} />
+        <Route exact path="/login">
+          {isLogged ? <Redirect to="/" /> : <Login></Login>}
+        </Route>
         <Route exact path="/register" component={Register} />
         <Route component={NotFount} />
       </Switch>

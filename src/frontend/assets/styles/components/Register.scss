@@ -54,3 +54,12 @@
   margin: 10px 0px;
   border: solid black 2px
 }
+
+.button:focus {
+  background: rgba(255, 0, 2, 0.7);
+  outline: none
+}
+
+.button:hover {
+  background: rgba(255, 0, 2, 0.7);
+}

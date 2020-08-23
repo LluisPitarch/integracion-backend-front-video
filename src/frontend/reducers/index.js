@@ -25,6 +25,16 @@ const reducer = (state, action) => {
           state.originals.find((item) => (item.id = action.payload)) ||
           {},
       };
+    case 'SET_ERROR':
+      return {
+        ...state,
+        error: action.payload,
+      };
+    case 'SET_SEARCH':
+      return {
+        ...state,
+        search: action.payload,
+      };
     default:
       return state;
   }
