@@ -7,4 +7,13 @@
     align-items: flex-start;
     flex-direction: column;
   }
+
+  .login__container {
+    padding: 30px;
+    min-height: 500px;
+  }
+  .register__container {
+    padding: 30px;
+    min-height: 500px;
+  }
 }
