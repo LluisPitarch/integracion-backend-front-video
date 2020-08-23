@@ -43,6 +43,7 @@ const Login = (props) => {
               type="email"
               placeholder="Correo"
               onChange={updateInput}
+              autoComplete="Off"
             />
             <input
               name="password"
@@ -50,6 +51,7 @@ const Login = (props) => {
               type="password"
               placeholder="Contraseña"
               onChange={updateInput}
+              autoComplete="Off"
             />
             <button className="button" type="submit">
               {form.loading ? (
