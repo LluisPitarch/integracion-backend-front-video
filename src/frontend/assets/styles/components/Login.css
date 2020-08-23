@@ -96,3 +96,10 @@
 .loadingIcon {
   width: 80px;
 }
+
+@media only screen and (max-width: 600px) {
+  .login__container {
+    padding: 30px;
+    min-height: 500px;
+  }
+}

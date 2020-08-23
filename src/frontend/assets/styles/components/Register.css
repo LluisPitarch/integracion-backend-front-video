@@ -38,7 +38,7 @@
   font-size: 16px;
   text-decoration: none;
   padding: 0 2px;
-  border-bottom: solid rgba(255, 0, 0, .8) 2px;
+  border-bottom: solid rgba(255, 0, 0, 0.8) 2px;
 }
 
 .button {
@@ -52,14 +52,21 @@
   height: 50px;
   letter-spacing: 1px;
   margin: 10px 0px;
-  border: solid black 2px
+  border: solid black 2px;
 }
 
 .button:focus {
   background: rgba(255, 0, 2, 0.7);
-  outline: none
+  outline: none;
 }
 
 .button:hover {
   background: rgba(255, 0, 2, 0.7);
+}
+
+@media only screen and (max-width: 600px) {
+  .register__container {
+    padding: 30px;
+    min-height: 500px;
+  }
 }

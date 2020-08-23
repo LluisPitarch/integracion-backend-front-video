@@ -57,7 +57,6 @@ const setResponse = (html, preloadedState, manifest) => {
   const mainBuild = manifest ? manifest['main.js'] : '/assets/app.js';
   const vendorBuild = manifest ? manifest['vendors.js'] : 'assets/vendor.js';
   return `
-      <!DOCTYPE html>
       <html lang="es">
         <head>
           <meta charset="UTF-8">
