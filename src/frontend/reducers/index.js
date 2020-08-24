@@ -21,9 +21,9 @@ const reducer = (state, action) => {
       return {
         ...state,
         playing:
-          state.trends.find((item) => (item.id = action.payload)) ||
-          state.originals.find((item) => (item.id = action.payload)) ||
-          {},
+          state.trends
+            .concat(state.originals)
+            .find((item) => item.id === action.payload) || {},
       };
     case 'SET_ERROR':
       return {
