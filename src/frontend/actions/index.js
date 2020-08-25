@@ -42,13 +42,19 @@ export const setSearch = (payload) => ({
 
 export const registerUser = (payload, redirectURL) => {
   return (dispatch) => {
-    axios
-      .post('auth/sign-up/', payload)
-      .then(({ data }) => dispatch(registerRequest(data)))
-      .then(() => {
-        window.location.href = redirectURL;
-      })
-      .catch((error) => dispatch(setError(error)));
+    if (payload.name && payload.email && payload.name) {
+      axios
+        .post('auth/sign-up/', payload)
+        .then(({ data }) => dispatch(registerRequest(data)))
+        .then(() => {
+          window.location.href = redirectURL;
+        })
+        .catch((error) =>
+          dispatch(setError('Your email is already registered'))
+        );
+    } else {
+      dispatch(setError('All the fields are required to register'));
+    }
   };
 };
 

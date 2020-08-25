@@ -6,12 +6,16 @@ import { registerUser } from '../actions';
 import Header from '../components/Header';
 import '../assets/styles/components/Register.css';
 
+import crossIcon from '../assets/static/cross.png';
+import loading from '../assets/static/loading.gif';
+
 const Register = (props) => {
   const [form, setValues] = useState({
     email: '',
     id: '',
     name: '',
     password: '',
+    loading: false,
   });
 
   const updateInput = (event) => {
@@ -24,6 +28,7 @@ const Register = (props) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     props.registerUser(form, '/login');
+    setValues({ ...form, loading: true });
   };
   return (
     <>
@@ -54,9 +59,26 @@ const Register = (props) => {
               onChange={updateInput}
             />
             <button className="button" type="submit">
-              Register
+              {form.loading ? (
+                props.error ? (
+                  'REGISTER'
+                ) : (
+                  <img className="loadingIcon" src={loading} alt="loading" />
+                )
+              ) : (
+                'REGISTER'
+              )}
             </button>
           </form>
+
+          <div className="error">
+            {props.error && (
+              <>
+                <img className="crossIcon" src={crossIcon} alt="error icon" />
+                <span className="errorText">{props.error}</span>
+              </>
+            )}
+          </div>
           <p className="login__container--register">
             You already have account?<br></br>
             <br></br>
@@ -70,6 +92,12 @@ const Register = (props) => {
   );
 };
 
+const mapStateToProps = (state) => {
+  return {
+    error: state.error,
+  };
+};
+
 const mapDispatchToProps = {
   registerUser,
 };
@@ -78,4 +106,4 @@ Register.propTypes = {
   registerUser: PropTypes.func,
 };
 
-export default connect(null, mapDispatchToProps)(Register);
+export default connect(mapStateToProps, mapDispatchToProps)(Register);
